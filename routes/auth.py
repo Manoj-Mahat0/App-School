@@ -14,10 +14,8 @@ def login(user: UserLogin):
     
     token = create_access_token({
         "email": db_user["email"],
-        "role": db_user["role"]
     })
     
     return {
         "access_token": token,
-        "role": db_user["role"]
     }
