@@ -19,4 +19,5 @@ def login(user: UserLogin):
     
     return {
         "access_token": token,
+        "role": db_user["role"]
     }
