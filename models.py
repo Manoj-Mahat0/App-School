@@ -5,7 +5,9 @@ class UserCreate(BaseModel):
     name: str
     email: EmailStr
     password: str
-    role: Literal["STUDENT", "TEACHER", "PRINCIPAL", "LIBRARIAN", "PARENT"]
+    role: Literal[
+        "ADMIN", "STUDENT", "TEACHER", "PRINCIPAL", "LIBRARIAN", "PARENT"
+    ]  # ✅ Added "ADMIN"
 
 class UserLogin(BaseModel):
     email: EmailStr
@@ -13,6 +15,11 @@ class UserLogin(BaseModel):
 
 class TokenPayload(BaseModel):
     email: EmailStr
-    role: str
+    role: Literal[
+        "ADMIN", "STUDENT", "TEACHER", "PRINCIPAL", "LIBRARIAN", "PARENT"
+    ]  # ✅ Also here
     name: Optional[str]
     message: str
+
+class ClassCreate(BaseModel):
+    name: str  # e.g., "10A", "6B"
